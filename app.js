@@ -3,7 +3,6 @@
 let cart = {};
 let allProducts = [];
 
-// Load the menu
 fetch('menu.json')
   .then(res => res.json())
   .then(data => {
@@ -12,7 +11,6 @@ fetch('menu.json')
     setupButtons();
   });
 
-// Display products by category (Sushi or Ramen)
 function displayProducts(filterCategory) {
   const productList = document.getElementById('product-list');
   productList.innerHTML = '';
@@ -26,7 +24,7 @@ function displayProducts(filterCategory) {
     card.className = 'product-card flex';
     card.innerHTML = `
       <div class="flex-1 p-2">
-        <h3>${product.name}</h3>
+        <h3 class="text-lg font-bold">${product.name}</h3>
         <p>${product.description}</p>
         <p><strong>₹${product.price}</strong> • 🔥 ${product.calories} kcal</p>
         <div class="flex items-center gap-2 mt-2">
@@ -63,6 +61,7 @@ function updateCart() {
   const cartBar = document.getElementById('view-cart-bar');
   const cartText = document.getElementById('cart-bar-text');
   const desktopCount = document.getElementById('cart-count-desktop');
+  const fab = document.getElementById('menu-fab');
 
   let total = 0;
   let count = 0;
@@ -73,7 +72,7 @@ function updateCart() {
     total += item.qty * item.price;
     count += item.qty;
     const div = document.createElement('div');
-    div.innerHTML = `${item.name} x ${item.qty} = ₹${item.qty * item.price}`;
+    div.innerHTML = `<strong>${item.name}</strong> x ${item.qty} = ₹${item.qty * item.price}`;
     itemsDiv.appendChild(div);
   }
 
@@ -82,6 +81,7 @@ function updateCart() {
   desktopCount.textContent = count;
 
   cartBar.classList.toggle('active', count > 0);
+  fab.style.bottom = count > 0 ? '80px' : '20px';
 }
 
 function setupButtons() {
@@ -95,6 +95,12 @@ function setupButtons() {
   };
   document.getElementById('view-cart-btn').onclick = () => {
     document.getElementById('cart-panel').classList.add('active');
+  };
+  document.getElementById('desktop-cart-btn').onclick = () => {
+    document.getElementById('cart-panel').classList.add('active');
+  };
+  document.getElementById('close-cart').onclick = () => {
+    document.getElementById('cart-panel').classList.remove('active');
   };
   document.getElementById('clear-cart').onclick = () => {
     cart = {};
