@@ -1,157 +1,80 @@
-// Fusion Sushi Co. - app.js
-
-let cart = {};
-let allProducts = [];
-
-fetch('menu.json')
-  .then(res => res.json())
-  .then(data => {
-    allProducts = data;
-    displayProducts('Sushi');
-    setupButtons();
-  });
-
-function displayProducts(filterCategory) {
-  const productList = document.getElementById('product-list');
-  productList.innerHTML = '';
-
-  const filtered = allProducts.filter(item =>
-    filterCategory === 'Sushi' ? item.category !== 'Ramen Bowls' : item.category === 'Ramen Bowls'
-  );
-
-  filtered.forEach(product => {
-    const card = document.createElement('div');
-    card.className = 'product-card flex';
-    card.innerHTML = `
-      <div class="flex-1 p-2">
-        <h3 class="text-lg font-bold">${product.name}</h3>
-        <p>${product.description}</p>
-        <p><strong>₹${product.price}</strong> • 🔥 ${product.calories} kcal</p>
-        <div class="flex items-center gap-2 mt-2">
-          <button onclick="changeQty('${product.name}', -1)">➖</button>
-          <span>${cart[product.name]?.qty || 0}</span>
-          <button onclick="changeQty('${product.name}', 1)">➕</button>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fusion Sushi Co.</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header sticky top-0">
+    <div class="container">
+      <h1>Fusion Sushi Co.</h1>
+      <p>Mafco Market, Sec.-18, Vashi</p>
+      <div class="cart-icon-desktop">
+        <span id="cart-count-desktop">0</span>
+        🛒
       </div>
-      <div class="w-32 relative">
-        <img src="images/${product.image}" alt="${product.name}" onclick="openPreview('${product.name}')" />
-      </div>
-    `;
-    productList.appendChild(card);
-  });
-}
+    </div>
+  </header>
 
-function changeQty(name, delta) {
-  const item = allProducts.find(p => p.name === name);
-  if (!item) return;
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Fresh. Fusion. Fantastic.</h2>
+    <p>Experience handcrafted sushi and ramen like never before.</p>
+    <button id="orderNowBtn">Order Now</button>
+    <button id="exploreMenuBtn">Explore Menu</button>
+  </section>
 
-  if (!cart[name]) cart[name] = { ...item, qty: 0 };
-  cart[name].qty += delta;
+  <!-- Sushi/Ramen Toggle -->
+  <section class="menu-toggle">
+    <button id="showSushi">🍣 Sushi Menu</button>
+    <button id="showRamen">🍜 Ramen Menu</button>
+  </section>
 
-  if (cart[name].qty <= 0) delete cart[name];
+  <!-- Product Section -->
+  <main id="menu-section">
+    <div id="product-list"></div>
+  </main>
 
-  updateCart();
-  displayProducts(document.getElementById('showSushi').classList.contains('active') ? 'Sushi' : 'Ramen');
-}
+  <!-- Floating Menu Button -->
+  <button id="menu-fab">🍱 MENU</button>
 
-function updateCart() {
-  const panel = document.getElementById('cart-panel');
-  const itemsDiv = document.getElementById('cart-items');
-  const totalSpan = document.getElementById('cart-total');
-  const cartBar = document.getElementById('view-cart-bar');
-  const cartText = document.getElementById('cart-bar-text');
-  const desktopCount = document.getElementById('cart-count-desktop');
-  const fab = document.getElementById('menu-fab');
+  <!-- Slide-in Cart Panel -->
+  <aside id="cart-panel">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <p>Total: ₹<span id="cart-total">0</span></p>
+    <button id="clear-cart">Clear Cart</button>
+    <a id="whatsapp-order" target="_blank">Order via WhatsApp</a>
+  </aside>
 
-  let total = 0;
-  let count = 0;
+  <!-- Sticky View Cart Bar (Mobile) -->
+  <div id="view-cart-bar">
+    <span id="cart-bar-text">0 items added</span>
+    <button id="view-cart-btn">VIEW CART</button>
+  </div>
 
-  itemsDiv.innerHTML = '';
-  for (let key in cart) {
-    const item = cart[key];
-    total += item.qty * item.price;
-    count += item.qty;
-    const div = document.createElement('div');
-    div.innerHTML = `<strong>${item.name}</strong> x ${item.qty} = ₹${item.qty * item.price}`;
-    itemsDiv.appendChild(div);
-  }
+  <!-- Preview Modal -->
+  <div id="preview-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal">❌</button>
+      <img id="modal-image" src="" alt="Product Preview" />
+      <h3 id="modal-name"></h3>
+      <p id="modal-description"></p>
+      <p id="modal-price"></p>
+      <p id="modal-calories"></p>
+      <button id="modal-add-to-cart">➕ Add to Cart</button>
+      <a href="#menu-section" id="back-to-menu">← Back to Menu</a>
+    </div>
+  </div>
 
-  totalSpan.textContent = total;
-  cartText.textContent = `${count} item${count !== 1 ? 's' : ''} added`;
-  desktopCount.textContent = count;
-  cartBar.classList.toggle('active', count > 0);
-  fab.style.bottom = count > 0 ? '80px' : '20px';
-}
-
-function setupButtons() {
-  document.getElementById('showSushi').onclick = () => {
-    displayProducts('Sushi');
-    setActiveTab('showSushi');
-  };
-  document.getElementById('showRamen').onclick = () => {
-    displayProducts('Ramen');
-    setActiveTab('showRamen');
-  };
-  document.getElementById('view-cart-btn').onclick = () => {
-    document.getElementById('cart-panel').classList.add('active');
-  };
-  document.getElementById('desktop-cart-btn').onclick = () => {
-    document.getElementById('cart-panel').classList.add('active');
-  };
-  document.getElementById('close-cart').onclick = () => {
-    document.getElementById('cart-panel').classList.remove('active');
-  };
-  document.getElementById('clear-cart').onclick = () => {
-    cart = {};
-    updateCart();
-    displayProducts('Sushi');
-  };
-  document.getElementById('orderNowBtn').onclick = () => {
-    document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
-  };
-  document.getElementById('exploreMenuBtn').onclick = () => {
-    document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
-  };
-  document.getElementById('menu-fab').onclick = () => {
-    document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
-  };
-  document.getElementById('whatsapp-order').onclick = () => {
-    let message = 'Order from Fusion Sushi Co.\n';
-    let total = 0;
-    for (let key in cart) {
-      const item = cart[key];
-      message += `\n${item.qty}x ${item.name} – ₹${item.qty * item.price}`;
-      total += item.qty * item.price;
-    }
-    message += `\n\nTotal: ₹${total}`;
-    message += `\n\nName: ______\nAddress: ______`;
-    const encoded = encodeURIComponent(message);
-    document.getElementById('whatsapp-order').href = `https://wa.me/919867378209?text=${encoded}`;
-  };
-}
-
-function setActiveTab(id) {
-  document.getElementById('showSushi').classList.remove('active');
-  document.getElementById('showRamen').classList.remove('active');
-  document.getElementById(id).classList.add('active');
-}
-
-function openPreview(name) {
-  const item = allProducts.find(p => p.name === name);
-  if (!item) return;
-
-  document.getElementById('modal-image').src = `images/${item.image}`;
-  document.getElementById('modal-name').textContent = item.name;
-  document.getElementById('modal-description').textContent = item.description;
-  document.getElementById('modal-price').textContent = `₹${item.price}`;
-  document.getElementById('modal-calories').textContent = `🔥 ${item.calories} kcal`;
-
-  const modal = document.getElementById('preview-modal');
-  modal.classList.remove('hidden');
-
-  document.getElementById('modal-add-to-cart').onclick = () => {
-    changeQty(name, 1);
-    modal.classList.add('hidden');
-  };
-  document.getElementById('close-modal').onclick = () => modal.classList.add('hidden');
-}
+  <!-- Footer -->
+  <footer>
+    <p>📍 Fusion Sushi Co., Mafco Market, Sec.-18, Vashi</p>
+    <p>📱 WhatsApp Orders: <a href="https://wa.me/919867378209" target="_blank">+91 9867378209</a></p>
+  </footer>
+</body>
+</html>
