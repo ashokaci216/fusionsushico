@@ -7,15 +7,14 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
 </head>
-<body>
+<body class="bg-white text-gray-800">
   <!-- Header -->
   <header class="header sticky top-0">
     <div class="container">
       <h1>Fusion Sushi Co.</h1>
       <p>Mafco Market, Sec.-18, Vashi</p>
-      <div class="cart-icon-desktop">
-        <span id="cart-count-desktop">0</span>
-        🛒
+      <div class="cart-icon-desktop" id="desktop-cart-btn">
+        🛒 <span id="cart-count-desktop">0</span>
       </div>
     </div>
   </header>
@@ -44,11 +43,19 @@
 
   <!-- Slide-in Cart Panel -->
   <aside id="cart-panel">
-    <h3>Your Cart</h3>
-    <div id="cart-items"></div>
-    <p>Total: ₹<span id="cart-total">0</span></p>
-    <button id="clear-cart">Clear Cart</button>
-    <a id="whatsapp-order" target="_blank">Order via WhatsApp</a>
+    <div class="cart-header">
+      <h3>Fusion Cart</h3>
+      <button id="close-cart" class="text-red-500 font-bold">Close ❌</button>
+    </div>
+    <div id="cart-items" class="cart-body"></div>
+    <p class="cart-total">Grand Total: ₹<span id="cart-total">0</span></p>
+    <p>Total Items: <span id="cart-count-text">0</span></p>
+    <button id="clear-cart" class="clear-cart-btn">Clear Cart</button>
+    <div class="order-fields">
+      <input type="text" id="customer-name" placeholder="Customer Name" />
+      <input type="text" id="customer-address" placeholder="Customer Address" />
+    </div>
+    <a id="whatsapp-order" target="_blank" class="whatsapp-btn">Place Order via WhatsApp</a>
   </aside>
 
   <!-- Sticky View Cart Bar (Mobile) -->
@@ -62,7 +69,7 @@
     <div class="modal-content">
       <button id="close-modal">❌</button>
       <img id="modal-image" src="" alt="Product Preview" />
-      <h3 id="modal-name"></h3>
+      <h3 id="modal-name" class="text-lg font-bold"></h3>
       <p id="modal-description"></p>
       <p id="modal-price"></p>
       <p id="modal-calories"></p>
