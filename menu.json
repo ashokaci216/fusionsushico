@@ -155,7 +155,7 @@
     "name": "Edamame with Sea Salt",
     "price": 200,
     "category": "Sides",
-    "description": NaN,
+    "description": "edamame",
     "image": "edamame-with-sea-salt.jpg",
     "calories": 120
   },
@@ -163,7 +163,7 @@
     "name": "Green Tea",
     "price": 100,
     "category": "Beverages",
-    "description": NaN,
+    "description": "green tea",
     "image": "green-tea.jpg",
     "calories": 0
   },
