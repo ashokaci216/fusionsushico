@@ -1,0 +1,174 @@
+/* Tailwind CDN will be used in index.html */
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
+
+/* ========== GLOBAL ========== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff4e6;
+  color: #333;
+  margin: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ========== HEADER ========== */
+.header {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.cart-icon-desktop {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.2rem;
+}
+
+/* ========== HERO ========== */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+/* ========== MENU TOGGLE ========== */
+.menu-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.menu-toggle button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+}
+
+/* ========== MENU SECTION ========== */
+#product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* ========== MENU FAB ========== */
+#menu-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00a884;
+  color: white;
+  border-radius: 9999px;
+  padding: 12px 16px;
+  font-weight: bold;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ========== SLIDE-IN CART PANEL ========== */
+#cart-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  padding: 1rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+#cart-panel.active {
+  right: 0;
+}
+
+/* ========== VIEW CART BAR (MOBILE) ========== */
+#view-cart-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #00a884;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  z-index: 998;
+  display: none;
+}
+
+#view-cart-bar.active {
+  display: flex;
+}
+
+/* ========== MODAL ========== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+#modal-add-to-cart {
+  background-color: #00a884;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: #f5f5f5;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}

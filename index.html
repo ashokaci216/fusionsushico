@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fusion Sushi Co.</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header sticky top-0">
+    <div class="container">
+      <h1>Fusion Sushi Co.</h1>
+      <p>Mafco Market, Sec.-18, Vashi</p>
+      <div class="cart-icon-desktop">
+        <span id="cart-count-desktop">0</span>
+        🛒
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Fresh. Fusion. Fantastic.</h2>
+    <p>Experience handcrafted sushi and ramen like never before.</p>
+    <button id="orderNowBtn">Order Now</button>
+    <button id="exploreMenuBtn">Explore Menu</button>
+  </section>
+
+  <!-- Sushi/Ramen Toggle -->
+  <section class="menu-toggle">
+    <button id="showSushi">🍣 Sushi Menu</button>
+    <button id="showRamen">🍜 Ramen Menu</button>
+  </section>
+
+  <!-- Product Section -->
+  <main id="menu-section">
+    <div id="product-list"></div>
+  </main>
+
+  <!-- Floating Menu Button -->
+  <button id="menu-fab">🍱 MENU</button>
+
+  <!-- Slide-in Cart Panel -->
+  <aside id="cart-panel">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <p>Total: ₹<span id="cart-total">0</span></p>
+    <button id="clear-cart">Clear Cart</button>
+    <a id="whatsapp-order" target="_blank">Order via WhatsApp</a>
+  </aside>
+
+  <!-- Sticky View Cart Bar (Mobile) -->
+  <div id="view-cart-bar">
+    <span id="cart-bar-text">0 items added</span>
+    <button id="view-cart-btn">VIEW CART</button>
+  </div>
+
+  <!-- Preview Modal -->
+  <div id="preview-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal">❌</button>
+      <img id="modal-image" src="" alt="Product Preview" />
+      <h3 id="modal-name"></h3>
+      <p id="modal-description"></p>
+      <p id="modal-price"></p>
+      <p id="modal-calories"></p>
+      <button id="modal-add-to-cart">➕ Add to Cart</button>
+      <a href="#menu-section" id="back-to-menu">← Back to Menu</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>📍 Fusion Sushi Co., Mafco Market, Sec.-18, Vashi</p>
+    <p>📱 WhatsApp Orders: <a href="https://wa.me/919867378209" target="_blank">+91 9867378209</a></p>
+  </footer>
+</body>
+</html>

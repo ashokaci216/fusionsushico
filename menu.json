@@ -1,0 +1,31 @@
+name,price,category,description,image,calories
+Classic Cucumber Sushi,239,Veggie Delights,"Cucumber, seasoned sushi rice, nori.   ",classic-cucumber-sushi.jpg,140
+Avocado Sushi,299,Veggie Delights,"Avocado, seasoned sushi rice, nori.   ",avocado-sushi.jpg,180
+Asparagus Avocado Sushi,319,Veggie Delights,"Asparagus, avocado, seasoned sushi rice, nori.   ",asparagus-avocado-sushi.jpg,190
+Veggie Rainbow Sushi,279,Veggie Delights,"Bell peppers, carrots, cucumber, avocado, sesame seeds, seasoned sushi rice, nori.   ",veggie-rainbow-sushi.jpg,200
+Spicy Mayo Veg Sushi,279,Veggie Delights,"Tempura-fried sweet potato, spicy mayo (with sriracha), seasoned sushi rice, nori.    🧀 Fusion Rolls ",spicy-mayo-veg-sushi.jpg,220
+Paneer Tikka Sushi,349,Fusion Rolls,"Grilled paneer tikka, cucumber, spicy mint mayo, seasoned sushi rice, nori.   ",paneer-tikka-sushi.jpg,250
+Spinach and Cheese Sushi,289,Fusion Rolls,"Wilted spinach, cream cheese, sesame seeds, seasoned sushi rice, nori.    🌶️ Specialty Rolls ",spinach-and-cheese-sushi.jpg,230
+Tandoori Veg Sushi,299,Specialty Rolls,"Grilled tandoori vegetables, mint chutney, seasoned sushi rice, nori.   ",tandoori-veg-sushi.jpg,240
+Sweet and Spicy Sushi,299,Specialty Rolls,"Pickled carrots, mango slices, chili flakes, seasoned sushi rice, nori.   ",sweet-and-spicy-sushi.jpg,190
+Sesame Tofu Sushi,349,Specialty Rolls,"Marinated and pan-fried tofu, sesame seeds, cucumber, seasoned sushi rice, nori.    🍣 Non-Vegetarian Sushi ",sesame-tofu-sushi.jpg,210
+Classic Salmon Sushi,459,Non-Vegetarian Sushi,"Grilled salmon, cucumber, seasoned sushi rice, nori, sesame seeds.   ",classic-salmon-sushi.jpg,210
+Spicy Tuna Sushi,399,Non-Vegetarian Sushi,"Tuna, spicy mayo, cucumber, seasoned sushi rice, nori.   ",spicy-tuna-sushi.jpg,230
+Chicken Teriyaki Sushi,359,Non-Vegetarian Sushi,"Teriyaki chicken, avocado, seasoned sushi rice, nori, sesame seeds.   ",chicken-teriyaki-sushi.jpg,260
+Shrimp Tempura Sushi,399,Non-Vegetarian Sushi,"Tempura-fried shrimp, cucumber, avocado, seasoned sushi rice, nori.     🍱 Mini Sushi Boxes (6 Pieces Each) ",shrimp-tempura-sushi.jpg,280
+Veggie Lite Box,279,Mini Sushi Boxes,"2 pcs Cucumber, 2 pcs Avocado, 2 pcs Veggie Rainbow  ",veggie-lite-box.jpg,210
+Desi Fusion Box,319,Mini Sushi Boxes,"2 pcs Paneer Tikka, 2 pcs Spicy Mayo Veg, 2 pcs Tandoori Veg   ",desi-fusion-box.jpg,260
+Creamy & Crunchy Box,299,Mini Sushi Boxes,"2 pcs Spinach & Cheese, 2 pcs Sweet & Spicy, 2 pcs Avocado   ",creamy-and-crunchy-box.jpg,230
+Signature Veg Box,299,Mini Sushi Boxes,"2 pcs Asparagus Avocado, 2 pcs Spicy Mayo Veg, 2 pcs Cucumber   ",signature-veg-box.jpg,220
+Non-Veg Sushi Sampler,399,Mini Sushi Boxes,"2 pcs Salmon, 2 pcs Chicken Teriyaki, 2 pcs Spicy Tuna    🥢 Sides ",non-veg-sushi-sampler.jpg,270
+Edamame with Sea Salt,200,Sides,🍵 Beverages ,edamame-with-sea-salt.jpg,120
+Green Tea,100,Beverages,,green-tea.jpg,0
+Lemon Iced Tea,100,Beverages,"Enjoy fresh, unique sushi flavors at Fusion Sushi Co. ✨   🍼 Samyang Buldak Ramen Bowls ",lemon-iced-tea.jpg,60
+Classic Buldak Fire Bowl ✨🔥,359,Ramen Bowls,"The original Buldak spicy chicken ramen, topped with shredded chicken, sesame seeds, and nori. ",classic-buldak-fire-bowl.jpg,
+Cheesy Buldak Ramen 🧁🔥,359,Ramen Bowls,"Spicy Buldak noodles with a generous amount of mozzarella and cheddar cheese, garnished with green onions. ",cheesy-buldak-ramen.jpg,
+Egg Lava Buldak Bowl 🍳🔥,299,Ramen Bowls,Buldak noodles topped with a soft-boiled soy-marinated egg and sesame seeds. ,egg-lava-buldak-bowl.jpg,
+Creamy Carbonara Buldak 🥛🔥,349,Ramen Bowls,"Buldak Carbonara noodles with extra creamy sauce, parmesan cheese, and crispy bacon bits. ",creamy-carbonara-buldak.jpg,
+Kimchi Buldak Explosion 🥬🔥,319,Ramen Bowls,"Buldak ramen topped with stir-fried kimchi, sesame oil, and a fried egg. ",kimchi-buldak-explosion.jpg,
+Veggie Delight Buldak Bowl 🥦🔥,299,Ramen Bowls,"A vegetarian option with stir-fried mushrooms, bell peppers, bok choy, and tofu. ",veggie-delight-buldak-bowl.jpg,
+Tandoori Chicken Buldak Ramen 🍗🔥,359,Ramen Bowls,A fusion of Indian and Korean flavors—Buldak noodles with grilled tandoori chicken and fresh coriander. ,tandoori-chicken-buldak-ramen.jpg,
+Butter Garlic Buldak Bowl 🧡🔥,359,Ramen Bowls,"Buldak noodles infused with garlic butter sauce, topped with crispy garlic chips and parmesan.",butter-garlic-buldak-bowl.jpg,
