@@ -1,23 +1,27 @@
-// Fusion Sushi Co. - Layout v2 JavaScript
+// Fusion Sushi Co. - Layout v2 JavaScript with Sushi/Ramen Toggle
 
 let cart = {};
 let allProducts = [];
+let currentFilter = 'Sushi';
 
 fetch('menu.json')
   .then(res => res.json())
   .then(data => {
     allProducts = data;
-    displayGroupedProducts();
+    displayGroupedProducts('Sushi');
     setupButtons();
   });
 
-function displayGroupedProducts() {
+function displayGroupedProducts(filter) {
   const productList = document.getElementById('grouped-product-list');
   productList.innerHTML = '';
 
   const categories = [...new Set(allProducts.map(item => item.category))];
 
   categories.forEach(category => {
+    const isSushi = category !== 'Ramen Bowls';
+    if ((filter === 'Sushi' && !isSushi) || (filter === 'Ramen' && isSushi)) return;
+
     const section = document.createElement('div');
     section.className = 'category-block';
     const heading = document.createElement('h2');
@@ -65,7 +69,7 @@ function changeQty(name, delta) {
   if (cart[name].qty <= 0) delete cart[name];
 
   updateCart();
-  displayGroupedProducts();
+  displayGroupedProducts(currentFilter);
 }
 
 function updateCart() {
@@ -100,6 +104,12 @@ function updateCart() {
 }
 
 function setupButtons() {
+  document.getElementById('showSushi').onclick = () => {
+    setActiveTab('Sushi');
+  };
+  document.getElementById('showRamen').onclick = () => {
+    setActiveTab('Ramen');
+  };
   document.getElementById('view-cart-btn').onclick = () => {
     document.getElementById('cart-panel').classList.add('active');
   };
@@ -112,15 +122,9 @@ function setupButtons() {
   document.getElementById('clear-cart').onclick = () => {
     cart = {};
     updateCart();
-    displayGroupedProducts();
+    displayGroupedProducts(currentFilter);
   };
   document.getElementById('menu-fab').onclick = () => {
-    document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
-  };
-  document.getElementById('orderNowBtn').onclick = () => {
-    document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
-  };
-  document.getElementById('exploreMenuBtn').onclick = () => {
     document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
   };
   document.getElementById('whatsapp-order').onclick = () => {
@@ -138,6 +142,14 @@ function setupButtons() {
     const encoded = encodeURIComponent(message);
     document.getElementById('whatsapp-order').href = `https://wa.me/919867378209?text=${encoded}`;
   };
+}
+
+function setActiveTab(type) {
+  currentFilter = type;
+  document.getElementById('showSushi').classList.remove('active');
+  document.getElementById('showRamen').classList.remove('active');
+  document.getElementById(type === 'Sushi' ? 'showSushi' : 'showRamen').classList.add('active');
+  displayGroupedProducts(type);
 }
 
 function openPreview(name) {
