@@ -155,7 +155,7 @@
     "name": "Edamame with Sea Salt",
     "price": 200,
     "category": "Sides",
-    "description": "edamame",
+    "description": "Lightly salted steamed edamame pods.",
     "image": "edamame-with-sea-salt.jpg",
     "calories": 120
   },
@@ -163,7 +163,7 @@
     "name": "Green Tea",
     "price": 100,
     "category": "Beverages",
-    "description": "green tea",
+    "description": "Soothing traditional Japanese green tea.",
     "image": "green-tea.jpg",
     "calories": 0
   },
@@ -171,7 +171,7 @@
     "name": "Lemon Iced Tea",
     "price": 100,
     "category": "Beverages",
-    "description": "Enjoy fresh, unique sushi flavors at Fusion Sushi Co.",
+    "description": "Refreshing iced tea with lemon twist.",
     "image": "lemon-iced-tea.jpg",
     "calories": 60
   },
@@ -179,7 +179,7 @@
     "name": "Classic Buldak Fire Bowl",
     "price": 359,
     "category": "Ramen Bowls",
-    "description": "The original Buldak spicy chicken ramen, topped with shredded chicken, sesame seeds, and nori.",
+    "description": "Spicy chicken ramen with shredded chicken, sesame seeds, and nori.",
     "image": "classic-buldak-fire-bowl.jpg",
     "calories": 0
   },
@@ -187,7 +187,7 @@
     "name": "Cheesy Buldak Ramen",
     "price": 359,
     "category": "Ramen Bowls",
-    "description": "Spicy Buldak noodles with mozzarella and cheddar cheese, garnished with green onions.",
+    "description": "Buldak noodles with mozzarella, cheddar, and green onions.",
     "image": "cheesy-buldak-ramen.jpg",
     "calories": 0
   },
@@ -195,7 +195,7 @@
     "name": "Egg Lava Buldak Bowl",
     "price": 299,
     "category": "Ramen Bowls",
-    "description": "Buldak noodles topped with a soft-boiled soy-marinated egg and sesame seeds.",
+    "description": "Soft-boiled soy-marinated egg over spicy ramen, sesame seeds.",
     "image": "egg-lava-buldak-bowl.jpg",
     "calories": 0
   },
@@ -203,7 +203,7 @@
     "name": "Creamy Carbonara Buldak",
     "price": 349,
     "category": "Ramen Bowls",
-    "description": "Carbonara noodles with creamy sauce, parmesan, and crispy bacon bits.",
+    "description": "Carbonara-style ramen with creamy sauce and crispy bacon bits.",
     "image": "creamy-carbonara-buldak.jpg",
     "calories": 0
   },
@@ -235,7 +235,7 @@
     "name": "Butter Garlic Buldak Bowl",
     "price": 359,
     "category": "Ramen Bowls",
-    "description": "Buldak noodles in garlic butter sauce, crispy garlic chips, and parmesan.",
+    "description": "Garlic butter Buldak noodles with crispy garlic chips and parmesan.",
     "image": "butter-garlic-buldak-bowl.jpg",
     "calories": 0
   }
