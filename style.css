@@ -4,7 +4,7 @@
 /* ========== GLOBAL ========== */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff4e6;
+  background: linear-gradient(to bottom, #fff8f3, #ffece6);
   color: #333;
   margin: 0;
 }
@@ -38,6 +38,10 @@ button {
 .hero {
   text-align: center;
   padding: 3rem 1rem;
+  background-image: url('images/sushi-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
 .hero button {
