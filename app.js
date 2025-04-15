@@ -93,6 +93,9 @@ function setupButtons() {
     displayProducts('Ramen');
     setActiveTab('showRamen');
   };
+  document.getElementById('desktop-cart-btn').onclick = () => {
+    document.getElementById('cart-panel').classList.add('active');
+  };
   document.getElementById('view-cart-btn').onclick = () => {
     document.getElementById('cart-panel').classList.add('active');
   };
