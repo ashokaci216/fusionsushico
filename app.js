@@ -26,7 +26,7 @@ function displayProducts(filterCategory) {
     card.className = 'product-card flex';
     card.innerHTML = `
       <div class="flex-1 p-2">
-        <h3>${product.name}</h3>
+        <h3 class="font-bold text-base">${product.name}</h3>
         <p>${product.description}</p>
         <p><strong>₹${product.price}</strong> • 🔥 ${product.calories} kcal</p>
         <div class="flex items-center gap-2 mt-2">
