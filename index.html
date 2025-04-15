@@ -3,39 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fusion Sushi Co.</title>
+  <title>Fusion Sushi Co. - v2</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
 </head>
 <body class="bg-white text-gray-800">
   <!-- Header -->
-  <header class="header sticky top-0">
-    <div class="container">
-      <h1>Fusion Sushi Co.</h1>
-      <p>Mafco Market, Sec.-18, Vashi</p>
-      <div class="cart-icon-desktop" id="desktop-cart-btn">
+  <header class="header sticky top-0 bg-white shadow z-50">
+    <div class="container flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold">Fusion Sushi Co.</h1>
+        <p class="text-sm">Mafco Market, Sec.-18, Vashi</p>
+      </div>
+      <div class="cart-icon-desktop cursor-pointer" id="desktop-cart-btn">
         🛒 <span id="cart-count-desktop">0</span>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h2>Fresh. Fusion. Fantastic.</h2>
-    <p>Experience handcrafted sushi and ramen like never before.</p>
-    <button id="orderNowBtn">Order Now</button>
-    <button id="exploreMenuBtn">Explore Menu</button>
-  </section>
-
-  <!-- Sushi/Ramen Toggle -->
-  <section class="menu-toggle">
-    <button id="showSushi">🍣 Sushi Menu</button>
-    <button id="showRamen">🍜 Ramen Menu</button>
+  <section class="hero text-center py-6 bg-gradient-to-r from-rose-50 to-orange-100">
+    <h2 class="text-2xl font-semibold">🍣 Fresh. Fusion. Fantastic.</h2>
+    <p class="text-gray-600">Handcrafted sushi, bold Indian flavors, creamy ramen — all in one menu.</p>
+    <button id="orderNowBtn" class="btn">Order Now</button>
+    <button id="exploreMenuBtn" class="btn">Explore Menu</button>
   </section>
 
   <!-- Product Section -->
-  <main id="menu-section">
-    <div id="product-list"></div>
+  <main id="menu-section" class="p-4">
+    <div id="grouped-product-list" class="space-y-8"></div>
   </main>
 
   <!-- Floating Menu Button -->
@@ -79,7 +75,7 @@
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer class="text-center py-4 bg-gray-100 text-sm">
     <p>📍 Fusion Sushi Co., Mafco Market, Sec.-18, Vashi</p>
     <p>📱 WhatsApp Orders: <a href="https://wa.me/919867378209" target="_blank">+91 9867378209</a></p>
   </footer>
