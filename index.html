@@ -10,67 +10,54 @@
 <body class="bg-white text-gray-800">
   <!-- Header -->
   <header class="header sticky top-0 bg-white shadow z-50">
-  <div class="container flex justify-between items-center">
-    <div>
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-orange-600 tracking-tight drop-shadow-sm">
-        Fusion Sushi Co.
-      </h1>
-      <p class="text-sm font-medium text-orange-700 tracking-wide">
-        📍 Mafco Market, Sec.-18, Vashi
-      </p>
-    </div>
-    <div id="desktop-cart-btn" class="cart-icon-desktop flex items-center gap-1 text-white bg-orange-500 px-3 py-1 rounded-full shadow cursor-pointer hover:bg-orange-600 transition">
-      🛒 <span id="cart-count-desktop" class="font-semibold">0</span>
+    <div class="container flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold">Fusion Sushi Co.</h1>
+        <p class="text-sm">Mafco Market, Sec.-18, Vashi</p>
+      </div>
+      <div class="cart-icon-desktop cursor-pointer" id="desktop-cart-btn">
+        🛒 <span id="cart-count-desktop">0</span>
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <h2 class="text-2xl font-semibold text-gray-900 drop-shadow-md">Fresh. Fusion. Fantastic.</h2>
-    <p class="text-gray-800 drop-shadow-sm">Experience handcrafted sushi and ramen like never before.</p>
-    <button id="orderNowBtn">Order Now</button>
-    <button id="exploreMenuBtn">Explore Menu</button>
+  <section class="hero text-center py-6">
+    <h2 class="text-2xl font-semibold">Fresh. Fusion. Fantastic.</h2>
+    <p class="text-gray-600">Experience handcrafted sushi and ramen like never before.</p>
+    <button id="orderNowBtn" class="btn">Order Now</button>
+    <button id="exploreMenuBtn" class="btn">Explore Menu</button>
   </section>
 
   <!-- Sushi/Ramen Toggle -->
-  <section class="menu-toggle">
-    <button id="showSushi" class="px-4 py-2 rounded-full font-semibold bg-orange-200 text-orange-800 hover:bg-orange-300">🍣 Sushi Menu</button>
-    <button id="showRamen" class="px-4 py-2 rounded-full font-semibold bg-yellow-200 text-yellow-800 hover:bg-yellow-300">🍜 Ramen Menu</button>
+  <section class="menu-toggle flex gap-2 justify-center py-4 border-b">
+    <button id="showSushi" class="toggle-btn active">🍣 Sushi Menu</button>
+    <button id="showRamen" class="toggle-btn">🍜 Ramen Menu</button>
   </section>
 
   <!-- Product Section -->
-  <main id="menu-section">
-    <div id="product-list"></div>
+  <main id="menu-section" class="p-4">
+    <div id="product-list" class="grid gap-4"></div>
   </main>
 
   <!-- Floating Menu Button -->
   <button id="menu-fab">🍱 MENU</button>
 
-  <!-- Slide-in Cart Panel (Shivneri Slide Cart v1 - Updated) -->
-  <aside id="cart-panel" class="fixed top-0 right-0 w-80 max-w-full h-full bg-white shadow-xl p-4 z-50 transform translate-x-full transition-transform duration-300">
-    <div class="flex justify-between items-center border-b pb-2 mb-4">
-      <h3 class="text-lg font-bold text-gray-800">🛒 Fusion Cart</h3>
-      <button id="close-cart" class="text-red-500 font-bold text-sm">Close ❌</button>
+  <!-- Slide-in Cart Panel -->
+  <aside id="cart-panel">
+    <div class="cart-header">
+      <h3>Fusion Cart</h3>
+      <button id="close-cart" class="text-red-500 font-bold">Close ❌</button>
     </div>
-
-    <div id="cart-items" class="space-y-2 max-h-[50vh] overflow-y-auto text-sm"></div>
-
-    <div class="border-t pt-3 mt-3 text-sm">
-      <p class="font-semibold">Total Items: <span id="cart-count-text">0</span></p>
-      <p class="font-semibold text-lg">Grand Total: ₹<span id="cart-total">0</span></p>
+    <div id="cart-items" class="cart-body"></div>
+    <p class="cart-total">Grand Total: ₹<span id="cart-total">0</span></p>
+    <p>Total Items: <span id="cart-count-text">0</span></p>
+    <button id="clear-cart" class="clear-cart-btn">Clear Cart</button>
+    <div class="order-fields">
+      <input type="text" id="customer-name" placeholder="Customer Name" />
+      <input type="text" id="customer-address" placeholder="Customer Address" />
     </div>
-
-    <button id="clear-cart" class="mt-3 w-full bg-gray-200 hover:bg-gray-300 text-sm py-1 rounded">🧹 Clear Cart</button>
-
-    <div class="mt-4 space-y-2">
-      <input type="text" id="customer-name" placeholder="Your Name" class="w-full border px-3 py-1 rounded text-sm" />
-      <input type="text" id="customer-address" placeholder="Delivery Address" class="w-full border px-3 py-1 rounded text-sm" />
-    </div>
-
-    <a id="whatsapp-order" target="_blank" class="block mt-4 text-center bg-green-500 hover:bg-green-600 text-white py-2 rounded font-semibold">
-      📦 Place Order via WhatsApp
-    </a>
+    <a id="whatsapp-order" target="_blank" class="whatsapp-btn">Place Order via WhatsApp</a>
   </aside>
 
   <!-- Sticky View Cart Bar (Mobile) -->
@@ -94,7 +81,7 @@
   </div>
 
   <!-- Footer -->
-  <footer>
+  <footer class="text-center py-4 bg-gray-100 text-sm">
     <p>📍 Fusion Sushi Co., Mafco Market, Sec.-18, Vashi</p>
     <p>📱 WhatsApp Orders: <a href="https://wa.me/919867378209" target="_blank">+91 9867378209</a></p>
   </footer>
