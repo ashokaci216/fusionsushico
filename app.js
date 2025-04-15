@@ -1,4 +1,4 @@
-// Fusion Sushi Co. - app.js
+// Fusion Sushi Co. - app.js (with Shivneri Slide Cart v1 logic)
 
 let cart = {};
 let allProducts = [];
@@ -57,12 +57,12 @@ function changeQty(name, delta) {
 }
 
 function updateCart() {
-  const panel = document.getElementById('cart-panel');
   const itemsDiv = document.getElementById('cart-items');
   const totalSpan = document.getElementById('cart-total');
   const cartBar = document.getElementById('view-cart-bar');
   const cartText = document.getElementById('cart-bar-text');
   const desktopCount = document.getElementById('cart-count-desktop');
+  const itemCountText = document.getElementById('cart-count-text');
 
   let total = 0;
   let count = 0;
@@ -73,14 +73,20 @@ function updateCart() {
     total += item.qty * item.price;
     count += item.qty;
     const div = document.createElement('div');
-    div.innerHTML = `${item.name} x ${item.qty} = ₹${item.qty * item.price}`;
+    div.className = 'flex justify-between items-center border-b py-1';
+    div.innerHTML = `
+      <div>
+        <strong>${item.name}</strong> x ${item.qty} = ₹${item.qty * item.price}
+      </div>
+      <button onclick="changeQty('${item.name}', -1)">❌</button>
+    `;
     itemsDiv.appendChild(div);
   }
 
   totalSpan.textContent = total;
   cartText.textContent = `${count} item${count !== 1 ? 's' : ''} added`;
   desktopCount.textContent = count;
-
+  itemCountText.textContent = count;
   cartBar.classList.toggle('active', count > 0);
 }
 
@@ -93,17 +99,26 @@ function setupButtons() {
     displayProducts('Ramen');
     setActiveTab('showRamen');
   };
+
+  // Slide-in open triggers
   document.getElementById('desktop-cart-btn').onclick = () => {
-    document.getElementById('cart-panel').classList.add('active');
+    document.getElementById('cart-panel').classList.remove('translate-x-full');
   };
   document.getElementById('view-cart-btn').onclick = () => {
-    document.getElementById('cart-panel').classList.add('active');
+    document.getElementById('cart-panel').classList.remove('translate-x-full');
   };
+
+  // Slide-in close button
+  document.getElementById('close-cart').onclick = () => {
+    document.getElementById('cart-panel').classList.add('translate-x-full');
+  };
+
   document.getElementById('clear-cart').onclick = () => {
     cart = {};
     updateCart();
     displayProducts('Sushi');
   };
+
   document.getElementById('orderNowBtn').onclick = () => {
     document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
   };
@@ -113,7 +128,10 @@ function setupButtons() {
   document.getElementById('menu-fab').onclick = () => {
     document.getElementById('menu-section').scrollIntoView({ behavior: 'smooth' });
   };
+
   document.getElementById('whatsapp-order').onclick = () => {
+    const name = document.getElementById('customer-name').value;
+    const address = document.getElementById('customer-address').value;
     let message = 'Order from Fusion Sushi Co.\n';
     let total = 0;
     for (let key in cart) {
@@ -122,7 +140,7 @@ function setupButtons() {
       total += item.qty * item.price;
     }
     message += `\n\nTotal: ₹${total}`;
-    message += `\n\nName: ______\nAddress: ______`;
+    message += `\n\nName: ${name || '______'}\nAddress: ${address || '______'}`;
     const encoded = encodeURIComponent(message);
     document.getElementById('whatsapp-order').href = `https://wa.me/919867378209?text=${encoded}`;
   };
