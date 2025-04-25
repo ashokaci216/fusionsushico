@@ -160,22 +160,6 @@
     "calories": 120
   },
   {
-    "name": "Green Tea",
-    "price": 100,
-    "category": "Beverages",
-    "description": "green tea",
-    "image": "green-tea.jpg",
-    "calories": 0
-  },
-  {
-    "name": "Lemon Iced Tea",
-    "price": 100,
-    "category": "Beverages",
-    "description": "Enjoy fresh, unique sushi flavors at Fusion Sushi Co.",
-    "image": "lemon-iced-tea.jpg",
-    "calories": 60
-  },
-  {
     "name": "Classic Buldak Fire Bowl",
     "price": 359,
     "category": "Ramen Bowls",
